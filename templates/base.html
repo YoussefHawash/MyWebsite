@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="keywords" content="usefsite,siteforusef,yousefporto,works of usef" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" href="{% static 'main/Icons/logo.ico' %}" />
+		<link rel="stylesheet" href="{% static '/Css/bootstrap.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'Css/aos.css' %}" />
+		<link rel="stylesheet" href="{% static 'main/css/nav.css' %}" />
+		<link rel="stylesheet" href="{% static 'main/css/footer.css' %}" />
+		<script src="{% static 'Js/aos.js' %}"></script>
+		<script src="{% static 'Js/bootstrap.min.js' %}"></script>
+		<link rel="stylesheet" href="{% static 'Css/base.css' %}" />
+		{% block css %}{% endblock %}
+		<title>{% block title %}{% endblock %}</title>
+	</head>
+	<body>
+		{% include 'main/includes/nav.html' %} {% block content %} {% endblock %}
+		<footer>
+			<div class="main-cont">
+				<div class="rows mb-5">
+					<div class="footer-info">
+						{% include 'main/includes/socialmedia.html' %}
+						<div>
+							<h2>Contact Us</h2>
+							<p><a href="mailto: {{creator.email}} ">{{creator.email}}</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="rows footer-conf">
+				<p>
+					Copyright ©2021 All rights reserved | This template is Copied By
+					Youssef Medhat| Version: Beta
+				</p>
+			</div>
+		</footer>
+	</body>
+	{% block script %} {% endblock %}
+</html>

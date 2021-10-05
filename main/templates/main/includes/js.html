@@ -1,0 +1,62 @@
+<script>
+    AOS.init();
+  function timeFunction() {
+      setTimeout(function(){ document.getElementById('small-txt').innerHTML="{{secondbio.smalltxt}}" }, 4000);
+      setTimeout(function(){ document.getElementById('big-txt').innerHTML="{{secondbio.bigtxt }}" }, 4000);
+      setTimeout(function(){ document.getElementById('small-txt').innerHTML="{{thirdbio.smalltxt}}" }, 8000);
+      setTimeout(function(){ document.getElementById('big-txt').innerHTML="{{thirdbio.bigtxt}}" }, 8000);
+      setTimeout(function(){ document.getElementById('small-txt').innerHTML="{{firstbio.smalltxt}}" }, 12000);
+      setTimeout(function(){ document.getElementById('big-txt').innerHTML="{{firstbio.bigtxt}}" }, 12000);
+      setTimeout(function(){ timeFunction()}, 12000);
+  }
+  timeFunction();
+  function animateValue(id, end) {
+      var start = 0
+      var duration = 1000
+
+      if (start === end) return;
+      var range = end - start;
+      var current = start;
+      var increment = end > start? 1 : -1;
+      var stepTime = Math.abs(Math.floor(duration / range));
+      var obj = document.getElementById(id);
+      var timer = setInterval(function() {
+          current += increment;
+          obj.innerHTML = current;
+          if (current == end) {
+              clearInterval(timer);
+          }
+      }, stepTime);
+  }
+  var interval = 400;
+  var timer1 = window.setInterval(function(){
+      // your code goes here ...
+      var test = document.getElementById("numbers-c");
+
+
+      if(test.classList.contains("aos-animate")) {
+      animateValue("visits",{{views}});
+      window.clearInterval(timer1);
+  }
+  }, interval);
+  var timer2 = window.setInterval(function(){
+      // your code goes here ...
+      var test = document.getElementById("numbers-p");
+
+
+      if(test.classList.contains("aos-animate")) {
+      animateValue("projects" ,{{creator.projectsdone}});
+      window.clearInterval(timer2);
+  }
+  }, interval);
+  var timer3 = window.setInterval(function(){
+      // your code goes here ...
+      var test = document.getElementById("numbers-f");
+
+
+      if(test.classList.contains("aos-animate")) {
+      animateValue("site-p" ,{{projects.count}});
+      window.clearInterval(timer3);
+  }
+  }, interval);
+</script>

@@ -1,0 +1,36 @@
+{% load static %}
+<ul class="social-cont">
+              <li class="social">
+                <a
+                  href="{{creator.git}}"
+                  style="
+                    background-image: url({%static 'main/Icons/git.svg'%});
+                    background-repeat: no-repeat;
+                    background-size: 50%;
+                    background-position: center;
+                  "
+                ></a>
+              </li>
+              <li class="social">
+                <a
+                  href="{{creator.linkedin}}"
+                  style="
+                    background-image: url({%static 'main/Icons/linked.svg'%});
+                    background-repeat: no-repeat;
+                    background-size: 50%;
+                    background-position: center;
+                  "
+                ></a>
+              </li>
+              <li class="social">
+                <a
+                  href="{{creator.twitter}}"
+                  style="
+                    background-image: url({%static 'main/Icons/twitter.svg'%});
+                    background-repeat: no-repeat;
+                    background-size: 50%;
+                    background-position: center;
+                  "
+                ></a>
+              </li>
+            </ul>

@@ -1,0 +1,84 @@
+{% extends 'base.html' %} 
+{% load mathfilters %}{% load static %} {% block css %}
+
+<link rel="stylesheet" href="{% static 'main/css/profile.css' %}" />
+<link rel="stylesheet" href="{% static 'main/css/media.css' %}" />
+{% endblock %} {% block title %} Yousef Medhat {% endblock %} {%block content %}
+<main>
+  <section >
+    <div class="main-cont">
+      <div class="rows">
+        <div class="img-cont"></div>
+        <div class="col-md-2"></div>
+        <div class="about-cont">
+          <h1 class="about-dic">ABOUT</h1>
+          <div class="about">
+            <h2 class="first-about-txt">Hi! {{creator.name}}</h2>
+            <p>{{creator.about}}</p>
+            {% include 'main/includes/socialmedia.html' %}
+            <h5>Contact me here!</h5>
+            <p>Email:<a href="mailto: {{creator.email}} ">{{creator.email}}</a></p>
+            <p>Phone:<a href="">{{creator.phone}}</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rows mt-5 end">
+        <div class="col-md10">
+          <div class="profile">
+            <h2 class="profile-txt">Profile</h2>
+            <h4 class="mb-4">
+              {{creator.firstaboutline}}.
+            </h4>
+            <p>
+             {{creator.about}}
+            </p>
+            <div class="rows mt-5 start">
+              <div class="col-md6">
+                <p><strong>Name:</strong> <span>{{creator.name}}</span></p>
+                <p>
+                  <strong>Address:</strong>
+                  <span>{{creator.address}}</span>
+                </p>
+                <p><strong>Phone:</strong> <span>{{creator.phone}}</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="exp ">
+            <h2 class="profile-txt">Experience</h2>
+            {% for exp in exp %}
+            <div class="exp-wrap">
+              <div class="desc">
+                <h3>{{exp.position}} <span> - {{exp.company}}</span></h3>
+                <p class="location">{{exp.location}}</p>
+              </div>
+              <div class="year">
+                <p>{{exp.startdate}} - {{exp.enddate}}</p>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="rows mt-5 start">
+          <div class="col-md8">
+            <h2 class="profile-txt">Skills</h2>
+          </div>
+
+          <div class="col-md6">
+          {% for skill in skills %}
+            <div class="progress-wrap">
+              <h4>{{skill.title}}</h4>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: {{skill.rate |mul:20}}%">
+                  <span>{{skill.rate}} years</span>
+                </div>
+              </div>
+              
+            </div>{% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}
