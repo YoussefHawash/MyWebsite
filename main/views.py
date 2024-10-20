@@ -48,6 +48,5 @@ def profile(request):
         'creator': owner,
         'skills': skills,
         'exp': experience
-
     }
     return render(request, 'main/profile.html', context)
