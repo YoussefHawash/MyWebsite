@@ -4,7 +4,7 @@ from django.core.validators import FileExtensionValidator
 # Create your models here.
 
 class website(models.Model):
-    views=models.IntegerField()
+    views = models.PositiveIntegerField(default=0)
 class creator(models.Model):
     name=models.CharField(max_length=48)
     pic=models.ImageField(upload_to='user_pics/',blank=True)
