@@ -40,17 +40,16 @@
         </div>
       </div>
       <div class="rows">
-      {% for service in services %}
+        {% for service in services %}
         <div class="col-service">
           <div class="card-service">
-          <div class="card-head"><img src="{{service.icon.url}}" ></div>
-          <div class="card-body">
-          <h3>{{service.firstline}}</h3>
-          <h3>{{service.secondline}}</h3>
-          <h3>{{service.thirdline}}</h3>
-
-          
-          </div></div>
+            <div class="card-head"><img src="{{service.icon.url}}" /></div>
+            <div class="card-body">
+              <h3>{{service.firstline}}</h3>
+              <h3>{{service.secondline}}</h3>
+              <h3>{{service.thirdline}}</h3>
+            </div>
+          </div>
         </div>
         {% endfor %}
       </div>
@@ -102,7 +101,7 @@
           <div class="ach-block">
             <div class="full-text">
               <span>visits</span>
-              <strong><h2 style="color:#2f89fc;">under maintenance</h2></strong>
+              <strong id="views">{{ views }}</strong>
             </div>
           </div>
         </div>
