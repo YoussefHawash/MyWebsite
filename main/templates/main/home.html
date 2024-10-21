@@ -47,7 +47,7 @@
         <div class="col-service">
           <div class="card-service">
             <div class="card-head">
-              <img src="{% static 'icons/' %}{{ service.pk }}.svg" />
+              <img src="{{ service.icon.url}}" alt="" />
             </div>
             <div class="card-body">
               <h3>{{service.firstline}}</h3>
@@ -72,7 +72,7 @@
         {% for project in projects%}
         <div class="project-cont" data-aos="zoom-in" data-aos-duration="1000">
           <a href="" class="project-image"
-            ><img src="{% static project.Img.url|slice:'1:' %}" alt=""
+            ><img src="{{ project.Img.url}}" alt=""
           /></a>
           <div class="text">
             <h4 class="subheading">{{project.tags.first}}</h4>

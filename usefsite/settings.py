@@ -17,23 +17,21 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY','HI')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = os.getenv('DEBUG', 'Flase') == 'True'
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 
 
-# Application definition
+AUTH_USER_MODEL = 'main.CustomUser'  # Replace 'main' with your app name
 
 INSTALLED_APPS = [
     'main',
     'mathfilters',
     "taggit",
+    'storages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -74,18 +72,41 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'usefsite.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'protodb',  # Replace with your MongoDB database name
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': 'mongodb+srv://hawash:22553976@portodb.kqwud.mongodb.net/?retryWrites=true&w=majority&appName=portodb',
+            'username': 'hawash',  # Atlas username
+            'password': '22553976',  # Atlas password
+            'authSource': 'admin',     # You can replace with your custom auth database, or leave 'admin'
+            'authMechanism': 'SCRAM-SHA-1',  # Auth mechanism recommended for MongoDB Atlas
+        }
     }
 }
 
+
+
+AWS_ACCESS_KEY_ID = 'AKIAQ3PHXPIWOAL3HIZY'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'elasticbeanstalk-eu-central-1-059004910124'
+AWS_S3_REGION_NAME = 'eu-central-1' 
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_FILE_OVERWRITE = False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STORAGES = {
+
+    # Media file (image) management  
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+    # CSS and JS file management
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -120,19 +141,14 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 STATIC_URL = '/static/'
-# MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-django_heroku.settings(locals())
