@@ -17,7 +17,10 @@
           <h2 class="about-txt">Hi! I'm {{creator.name}}</h2>
           <p>{{creator.about|linebreaks}}</p>
           <p>
-            <a href="{% url 'profile' %}">Checkout My Resume</a>
+            <a
+              href="https://drive.google.com/file/d/1Kpmwde5s8UN1HJeJFCrBhQg4mTQ6qDkS/view?usp=sharing"
+              >Checkout My Resume</a
+            >
           </p>
           {% include 'main/includes/socialmedia.html' %}
           <h5>Contact me here!</h5>
@@ -43,7 +46,9 @@
         {% for service in services %}
         <div class="col-service">
           <div class="card-service">
-            <div class="card-head"><img src="{{service.icon.url}}" /></div>
+            <div class="card-head">
+              <img src="{{ service.icon.url}}" alt="" />
+            </div>
             <div class="card-body">
               <h3>{{service.firstline}}</h3>
               <h3>{{service.secondline}}</h3>
@@ -67,7 +72,7 @@
         {% for project in projects%}
         <div class="project-cont" data-aos="zoom-in" data-aos-duration="1000">
           <a href="" class="project-image"
-            ><img src="/media/Project_images/port.jpg" alt=""
+            ><img src="{{ project.Img.url}}" alt=""
           /></a>
           <div class="text">
             <h4 class="subheading">{{project.tags.first}}</h4>
@@ -101,7 +106,7 @@
           <div class="ach-block">
             <div class="full-text">
               <span>visits</span>
-              <strong id="views">{{ views }}</strong>
+              <strong>{{views}}</strong>
             </div>
           </div>
         </div>

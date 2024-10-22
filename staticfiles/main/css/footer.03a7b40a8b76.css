@@ -1,0 +1,39 @@
+footer {
+    background: #121212;
+    padding: 8em 0;
+    width: 100%;
+    font-size: 16px;
+  }
+  .footer-info {
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    text-align: center;
+  }
+  .footer-info .social-cont {
+    margin-right: auto;
+    margin-left: auto;
+    width: max-content;
+  }
+  .footer-info div h2 {
+    font-weight: 800;
+  }
+  .footer-info div p {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+    font-size: calc(1.75rem * var(--text));
+    font-weight: 400;
+  }
+  .footer-info div p a {
+    color: #fff;
+  }
+  footer .rows p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .footer-conf{
+    width: 80% !important;
+    text-align: center;
+    margin: 0 auto;
+  }
