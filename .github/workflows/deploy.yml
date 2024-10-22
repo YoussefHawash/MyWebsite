@@ -20,4 +20,4 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@18.197.69.86 'bash -s' < /home/ubuntu/deploy.sh
+          ssh -o StrictHostKeyChecking=no ubuntu@18.197.69.86 'bash -s' < ./deploy.sh
