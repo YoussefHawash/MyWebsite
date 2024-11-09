@@ -67,6 +67,11 @@ section {
   height: 650px;
   max-height: 700px;
 }
+.Profile-Image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Makes sure the image fills the div without distortion */
+}
 .space-use {
   flex: 11%;
   max-width: 11%;
@@ -85,17 +90,17 @@ section {
   font-weight: bold;
 }
 .about {
-  padding: 3rem ;
+  padding: 3rem;
 }
 .about-txt {
-  margin-bottom: 3rem ;
+  margin-bottom: 3rem;
   letter-spacing: 1px;
 }
 .rows {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-   width: 100%;
+  width: 100%;
 }
 .title-cont {
   text-align: center;
@@ -146,7 +151,6 @@ section {
 }
 .project-image img {
   width: 100%;
-
 }
 .text {
   padding: 10% 7%;
