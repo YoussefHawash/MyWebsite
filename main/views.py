@@ -39,20 +39,3 @@ def Home(request):
     return render(request, 'main/home.html', context)
 
 
-# def profile(request):
-#     owner = None
-#     try:
-#         owner = creator.objects.get(pk=1)
-#     except creator.DoesNotExist:
-#         pass  
-
-  
-#     skills = skill.objects.order_by('-rate')  
-#     experience = exp.objects.all()  
-
-#     context = {
-#         'creator': owner,
-#         'skills': skills,
-#         'exp': experience,
-#     }
-#     return render(request, 'main/profile.html', context)

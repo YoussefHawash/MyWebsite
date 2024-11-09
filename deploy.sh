@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/ubuntu/Portofolio_Website
+cd /home/ubuntu/MyWebsite
 git pull origin main
 
 # Activate the virtual environment
