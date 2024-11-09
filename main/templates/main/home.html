@@ -1,0 +1,138 @@
+{% extends 'base.html' %} {% load static %} {% block css %}
+<link rel="stylesheet" href="{% static 'main/css/home.css' %}" />
+<link rel="stylesheet" href="{% static 'main/css/media.css' %}" />
+{% endblock %} {% block title %} Yousef | Home {% endblock %} {%block content%}
+<main>
+  <section class="first">
+    <a href="#" class="small-txt" id="small-txt">{{firstbio.smalltxt}}</a>
+    <h1 class="big-txt" id="big-txt">{{firstbio.bigtxt}}</h1>
+  </section>
+  <section>
+    <div class="main-cont flex-rows">
+      <div class="img-cont" data-aos="fade-up" data-aos-duration="1000"></div>
+      <div class="space-use"></div>
+      <div class="about-cont" data-aos="fade-up" data-aos-duration="1000">
+        <h1 class="about-dic">ABOUT</h1>
+        <div class="about">
+          <h2 class="about-txt">Hi! I'm {{creator.name}}</h2>
+          <p>{{creator.about|linebreaks}}</p>
+          <p>
+            <a
+              href="https://elasticbeanstalk-eu-central-1-059004910124.s3.eu-central-1.amazonaws.com/Youssef+Hawash+CV.pdf"
+              >Checkout My Resume</a
+            >
+          </p>
+          {% include 'main/includes/socialmedia.html' %}
+          <h5>Contact me here!</h5>
+          <p>
+            Email:<a href="mailto: {{creator.email}} ">{{creator.email}}</a>
+          </p>
+          <p style="letter-spacing: 1px">
+            Phone:<a href="">{{creator.phone}}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="main-cont">
+      <div class="rows pb-5 mb-5">
+        <div class="title-cont">
+          <span>What i do</span>
+          <h2>My services</h2>
+        </div>
+      </div>
+      <div class="rows">
+        {% for service in services %}
+        <div class="col-service">
+          <div class="card-service">
+            <div class="card-head">
+              <img src="{{ service.icon.url}}" alt="" />
+            </div>
+            <div class="card-body">
+              <h3>{{service.firstline}}</h3>
+              <h3>{{service.secondline}}</h3>
+              <h3>{{service.thirdline}}</h3>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="main-cont">
+      <div class="rows">
+        <div class="title-cont">
+          <span>PORTOFOLIO</span>
+          <h2>Checkout a few of my works</h2>
+        </div>
+      </div>
+      <div class="rows">
+        {% for project in projects%}
+        <div class="project-cont" data-aos="zoom-in" data-aos-duration="1000">
+          <a href="" class="project-image"
+            ><img src="{{ project.Img.url}}" alt=""
+          /></a>
+          <div class="text">
+            <h4 class="subheading">{{project.tags.first}}</h4>
+            <h2 class="heading">
+              {% if project.git == "" %} {{project.title}} {% else %}
+              <a href="">{{project.title}}</a>
+              {% endif %}
+            </h2>
+            <p>{{project.description}}</p>
+            {% if project.git == "" %}
+            <p style="color: #2f89fc">Not Viewable</p>
+            {% else %}
+            <p><a href="{{project.git}}">View Project</a></p>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <section>
+    <div class="main-cont">
+      <div class="rows pb-5 mb-5">
+        <div class="title-cont">
+          <span>PORTOFOLIO</span>
+          <h2>I love to share my work</h2>
+        </div>
+      </div>
+      <div class="rows start" id="numbers-c" data-aos="#">
+        <div class="ach-cont">
+          <div class="ach-block">
+            <div class="full-text">
+              <span>visits</span>
+              <strong>{{views}}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rows center" id="numbers-p" data-aos="#">
+        <div class="ach-cont">
+          <div class="ach-block">
+            <div class="full-text">
+              <span>Project done</span>
+              <strong id="projects">0</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rows end" id="numbers-f" data-aos="#">
+        <div class="ach-cont">
+          <div class="ach-block">
+            <div class="full-text">
+              <span>Projects in The site</span>
+              <strong id="site-p">0</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %} {% block script %} {% include 'main/includes/js.html' %}
+{%endblock %}

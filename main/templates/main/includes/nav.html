@@ -1,0 +1,12 @@
+{% load static %}
+<header>
+  <nav>
+    <div class="left-nav">
+      <img class="logo" src="{% static 'main/Icons/logo.svg'%}" />
+      <div>
+        <a href="{% url 'home' %}">{{creator.name}}</a>
+      </div>
+    </div>
+   
+  </nav>
+</header>
