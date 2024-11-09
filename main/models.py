@@ -2,7 +2,6 @@ from django.db import models
 from taggit.managers import TaggableManager
 from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import AbstractUser
-# Create your models here.
 
 class website(models.Model):
     id = models.AutoField(primary_key=True)
@@ -53,5 +52,4 @@ class bio (models.Model):
     
 
 class CustomUser(AbstractUser):
-    # Override the default id field with AutoField or BigAutoField
-    id = models.BigAutoField(primary_key=True)  # Use BigAutoField to match MongoDB's ObjectId size
+    id = models.BigAutoField(primary_key=True)  

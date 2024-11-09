@@ -9,15 +9,12 @@ def visitsCounter(mywebsite):
 
 # Home view
 def Home(request):
-    # Fetch website object, or return 404 if not found
     mywebsite = get_object_or_404(website, pk=1)
 
-    # Fetch creator details, projects, and services
     owner = creator.objects.get(pk=1)
     projects = project.objects.all()
     services = service.objects.all()
 
-    # Handle bio objects carefully
     bios = bio.objects.all()
     bios_data = {
         'firstbio': bios[0] if len(bios) > 0 else None,
@@ -25,13 +22,11 @@ def Home(request):
         'thirdbio': bios[2] if len(bios) > 2 else None
     }
 
-    # Increment view count if in production and first visit
     if not settings.DEBUG:
         if not request.session.get('has_viewed_home', False):
-            visitsCounter(mywebsite)  # Increment view count
-            request.session['has_viewed_home'] = True  # Mark session to avoid multiple counts
+            visitsCounter(mywebsite)  
+            request.session['has_viewed_home'] = True  
 
-    # Prepare context
     context = {
         'views': mywebsite.views,
         'creator': owner,
@@ -44,23 +39,20 @@ def Home(request):
     return render(request, 'main/home.html', context)
 
 
-# Profile view
-def profile(request):
-    # Fetch creator object with error handling
-    owner = None
-    try:
-        owner = creator.objects.get(pk=1)
-    except creator.DoesNotExist:
-        pass  # Handle creator not existing gracefully, you can log this if needed
+# def profile(request):
+#     owner = None
+#     try:
+#         owner = creator.objects.get(pk=1)
+#     except creator.DoesNotExist:
+#         pass  
 
-    # Fetch skills and experience
-    skills = skill.objects.order_by('-rate')  # Ordering skills by rate
-    experience = exp.objects.all()  # Fetch all experience entries
+  
+#     skills = skill.objects.order_by('-rate')  
+#     experience = exp.objects.all()  
 
-    # Prepare context
-    context = {
-        'creator': owner,
-        'skills': skills,
-        'exp': experience,
-    }
-    return render(request, 'main/profile.html', context)
+#     context = {
+#         'creator': owner,
+#         'skills': skills,
+#         'exp': experience,
+#     }
+#     return render(request, 'main/profile.html', context)
