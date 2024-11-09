@@ -1,6 +1,9 @@
 # Personal Portfolio Website
 
 This is the code for my personal portfolio website, designed to showcase my projects, services, and contact information. The website includes sections about me, the services I provide, a portfolio of my projects, and achievements.
+## Description
+
+A personal portfolio website built using Django, showcasing my projects, services, and contact information. Features dynamic content, responsive design, visitor counter, and portfolio showcase. Deployed on AWS EC2 with media storage on AWS S3.Table of Contents
 
 ## Table of Contents
 
