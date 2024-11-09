@@ -81,13 +81,13 @@ p {
 ul {
   margin-bottom: 1rem;
 }
-.pb-5{
+.pb-5 {
   padding-bottom: 3rem !important;
 }
-.mb-5{
+.mb-5 {
   margin-bottom: 3rem !important;
 }
-.flex-row{
+.flex-row {
   flex-direction: row;
 }
 
@@ -112,7 +112,7 @@ ul {
   height: 100%;
 }
 .start {
-  justify-content: flex-start !important; 
+  justify-content: flex-start !important;
 }
 .center {
   justify-content: center !important;
@@ -121,6 +121,16 @@ ul {
   flex-direction: row-reverse !important;
   justify-content: flex-start !important;
 }
-.t-center{
+.t-center {
   text-align: center;
+}
+html,
+body {
+  overflow: auto; /* Allows scrolling */
+  scrollbar-width: none; /* Firefox hides scrollbar */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge hide scrollbar */
 }
